@@ -19,7 +19,7 @@ class AuthController extends Controller
         $user= User::create($fields);
         Auth::login($user);
 
-        return redirect()->route('post');
+        return redirect()->intended('post');
     } 
 
     public function Login(Request $request){

@@ -123,7 +123,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{route("create")}}">New Post</a></li>
-                            <li><a class="dropdown-item" href="">MY Post</a></li>
+                            <li><a class="dropdown-item" href="{{route("MyPost")}}">My Post</a></li>
                             <li><a class="dropdown-item" href=""></a></li>
                         </ul>
                     </li>

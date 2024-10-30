@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 
 use App\Http\Requests\UpdatePostRequest;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +19,19 @@ class PostController extends Controller
         $posts=Post::latest()->get();
         return view("dashboard",['posts'=>$posts]);
     }
+
+    // public function PostOverview(User $user) {
+    //     $userPosts = $user->posts; // Retrieves posts for the specified user
+    //     return view("post-overview", ['posts' => $userPosts]); // Passes posts to view
+    // }
+
+   public function MyPost()
+    {
+    $posts = Post::with('user')->where('user_id', Auth::id())->latest()->get();
+    return view("my-post", ['posts' => $posts]);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,6 +64,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        return view('post-overview', ['post' => $post]);
     }
 
     /**
@@ -74,6 +88,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        
+        return back()->with("delete",'Your post was delete !');
     }
 }

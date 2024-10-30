@@ -11,7 +11,7 @@
   <div class="container p-5 shadow-lg rounded bg-white">
     <div class="row">
       <div class="col-lg-6 d-none d-lg-block">
-        <img src="https://source.unsplash.com/600x800/?school,students" alt="Login Image" class="img-fluid rounded">
+        <img src="images/image1.jpg" alt="Login Image" class="img-fluid rounded">
       </div>
       <div class="col-lg-6">
         <h2 class="text-center">Login</h2>
