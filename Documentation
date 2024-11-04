@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project is a simple blogging application built using the Laravel framework, allowing users to register, log in, create, and manage blog posts.
+This project is a simple application built using the Laravel framework, allowing users to register, log in, create, and manage posts.
 The application adheres to the Model-View-Controller (MVC) architecture, emphasizing clean code and separation of concerns. It features user authentication, CRUD operations for posts, and a user-friendly interface.
 
 ### Features
