@@ -109,35 +109,49 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route("post.index")}}">Dashboard</a>
+                        <a class="nav-link active" href="{{ route('post.index') }}">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Chats</a>
+                        <a class="nav-link" href="">
+                            <i class="fas fa-comments"></i> Chats
+                        </a>
                     </li>
-                   
-                    
-                    <!-- Dropdown for Customers -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route("post.search")}}">
+                            <i class="fas fa-search"></i> search
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Posts
+                            <i class="fas fa-thumbtack"></i> Posts
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{route("create")}}">New Post</a></li>
-                            <li><a class="dropdown-item" href="{{route("MyPost")}}">My Post</a></li>
-                            <li><a class="dropdown-item" href=""></a></li>
+                            <li><a class="dropdown-item" href="{{ route('create') }}"><i class="fas fa-plus-circle"></i> New Post</a></li>
+                            <li><a class="dropdown-item" href="{{ route('MyPost') }}"><i class="fas fa-list-alt"></i> My Posts</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item">
-                        <form action="{{route("logout")}}" method="post">
+                        <form action="{{ route('logout') }}" method="post">
                             @csrf
-                            <button type="submit" class="nav-link btn btn-link text-light">Logout</button>
+                            <button type="submit" class="nav-link btn btn-link text-light">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
                         </form>
+                    </li>
+    
+                    <!-- User Info with Profile Picture -->
+                    <li class="nav-item d-flex align-items-center ms-3">
+                        <img src="{{ auth()->user()->profile_image ??  asset('storage/images/avatar.png') }}"alt="Profile Picture" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                        <span class="nav-link text-light ms-2">{{ auth()->user()->name }}</span>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    
 
     <!-- Main Content -->
     <div class="container mt-5">
@@ -159,3 +173,18 @@
 
 </body>
 </html>
+<script>
+    // Close the navbar when clicking outside of it
+    document.addEventListener('click', function(event) {
+        const navbar = document.getElementById('navbarNav');
+        const toggler = document.querySelector('.navbar-toggler');
+
+        // Check if the clicked target is outside the navbar
+        if (!navbar.contains(event.target) && !toggler.contains(event.target)) {
+            const collapse = bootstrap.Collapse.getInstance(navbar);
+            if (collapse) {
+                collapse.hide(); // Hide the navbar
+            }
+        }
+    });
+</script>

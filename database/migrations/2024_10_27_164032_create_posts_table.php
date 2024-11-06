@@ -16,6 +16,11 @@ return new class extends Migration
             $table->foreignId("user_id")->constrained()->cascadeOnDelete();
             $table->string("Title");
             $table->text("Body");
+            $table->date("Date");
+            $table->time("Time_Found");
+            $table->string("Location");
+            $table->text("image")->nullable();
+            $table->unsignedBigInteger("views")->default(0);
             $table->timestamps();
         });
     }

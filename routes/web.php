@@ -8,6 +8,8 @@ Route::redirect('/dashboard',"post");
 Route::view('/create','create-post')->name("create");
 Route::get('/my-post',[PostController::class,'MyPost'])->name('MyPost');
 Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
+Route::delete('/post/delete/{post}', [PostController::class, 'destroy2'])->name('post.destroy2');
+Route::get('/search', [PostController::class, 'search'])->name('post.search');
 Route::resource('post',PostController::class);
 // Route::view('/my-post','my-post')->name("MyPost");
 Route::view('/','auth.signup')->name("signup");

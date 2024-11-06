@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100 bg-light">
   <div class="container p-5 shadow-lg rounded bg-white">
     <div class="row">
       <div class="col-lg-6 d-none d-lg-block">
-        <img src="images/image1.jpg" alt="Login Image" class="img-fluid rounded">
+        <img src={{ asset('storage/images/image1.jpg') }} alt="Login Image" class="img-fluid rounded">
       </div>
       <div class="col-lg-6">
         <h2 class="text-center">Login</h2>
@@ -48,6 +49,7 @@
       </div>
     </div>
   </div>
+  <script src="/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

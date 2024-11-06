@@ -11,6 +11,11 @@ class Post extends Model
     protected $fillable = [
         'Title',
         'Body',
+        'image',
+        'Date',
+        'Time_Found',
+        'Location',
+        'views',
     ];
 
     public function user()
